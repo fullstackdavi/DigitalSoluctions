@@ -1,0 +1,96 @@
+Fermarc Robótica - Plataforma E-commerce Profissional
+Visão geral
+Plataforma completa de e-commerce desenvolvida com Python Flask, SQLite3, HTML, CSS e JavaScript. Sistema profissional com todas as funcionalidades possíveis para uma loja virtual de robótica e eletrônica.
+
+Órfão Utilizado
+Backend : Python 3.11 + Flask 3.0.0
+Banco de Dados : SQLite3 com SQLAlchemy ORM
+Autenticação : Flask-Login com hash de senhas
+Frontend : HTML5, CSS3, JavaScript (Vanilla)
+Implantação : Gunicorn (pronto para renderizar)
+Estrutura do Projeto
+├── app/
+│   ├── __init__.py          # Configuração do Flask
+│   ├── models.py            # Modelos do banco de dados
+│   ├── routes/              # Rotas organizadas por módulo
+│   │   ├── main.py          # Rotas públicas (home, produtos, busca)
+│   │   ├── auth.py          # Autenticação (login, registro)
+│   │   ├── cart.py          # Carrinho e checkout
+│   │   └── admin.py         # Painel administrativo
+│   ├── templates/           # Templates HTML (Jinja2)
+│   │   ├── base.html        # Layout base
+│   │   ├── index.html       # Página inicial
+│   │   ├── product_detail.html
+│   │   ├── cart.html
+│   │   ├── orders.html
+│   │   ├── login.html
+│   │   ├── register.html
+│   │   └── admin/           # Templates administrativos
+│   └── static/
+│       ├── css/style.css    # Estilos CSS
+│       ├── js/              # JavaScript
+│       └── images/          # Imagens
+├── run.py                   # Arquivo principal para executar o app
+├── requirements.txt         # Dependências Python
+├── Procfile                 # Configuração para Render
+└── replit.md               # Documentação
+Funcionalidades Implementadas
+Sistema de Usuários
+✅ Registro de novos usuários com CPF e telefone
+✅ Entrar/Sair com sessões
+✅ Hash de senhas com Werkzeug
+✅ Controle de acesso (usuário comum vs admin)
+✅ NOVO : Validação e máscara de CPF no cadastro
+✅ NOVO : Validação e máscara de telefone no cadastro
+✅ NOVO : Normalização de CPF (armazenamento sem formatação)
+� de Produtos
+✅ Listagem de produtos com paginação
+✅ Página de detalhes do produto
+✅ Busca de produtos por nome/código/descrição
+✅ Filtrar por categorias
+✅ Produtos em destaque
+✅ Imagens de produtos
+✅ Controle de estoque
+✅ NOVO : Imagens nas categorias exibidas no hover
+✅ NOVO : Efeito visual com sobreposição nas categorias
+Carrinho de Compras
+✅ Adicionar/remover produtos
+✅ Atualizar quantidades
+✅ Cálculo automático de totais
+✅ Verificação de estoque
+✅ Cálculo de parcelamento
+✅ Desconto PIX (5%)
+✅ NOVO : Sistema de cupons de desconto
+✅ NOVO : Aplicar/remover cupons no carrinho
+✅ NOVO : Validação de cupons (validade, usos, compra mínima)
+Sistema de Pedidos
+✅ Finalização de compra
+✅ Histórico de pedidos do usuário
+✅ Gerenciamento de status
+✅ Controle de estoque automático
+✅ Detalhes completos do pedido
+Painel Administrativo
+✅ Dashboard com estatísticas
+✅ CRUD completo de produtos
+✅ CRUD completo de categorias (com imagens)
+✅ Gerenciamento de pedidos com informações completas
+✅ Atualização de status de pedidos
+✅ Controle de estoque
+✅ Produtos em destaque
+✅ CRUD completo de cupons de desconto
+✅ Gerenciamento de validade e uso de cupons
+✅ Gerenciamento de slides do carrossel principal
+✅ Visualização completa de pedidos com CPF, telefone e endereço
+✅ Página de detalhes do pedido com todas as informações do cliente
+✅ Interface profissional e organizada para gerenciamento de pedidos
+Checklist (Lista de Desejos) - NOVO
+✅ Adicionar produtos à lista de desejos
+✅ Remover produtos da lista
+✅ Visualizar lista de desejos completa
+✅ Indicador visual de produtos na lista de desejos
+Sistema de Avaliações (Comentários) - NOVO
+✅ Avaliar produtos com estrelas (1-5)
+✅ Adicionar comentários nas avaliações
+✅ Verificação de compra confirmada
+✅ Editar e excluir avaliações próprias
+✅ Exibir avaliações na página do produto

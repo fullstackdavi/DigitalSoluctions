@@ -1,0 +1,34 @@
+Visão geral
+Este é um sistema de declarações românticas desenvolvido com Flask que permite aos usuários criar declarações personalizadas com fotos para seus entes queridos. Os usuários podem se cadastrar, fazer login, criar declarações personalizadas com nomes e fotos dos destinatários e compartilhá-las por meio de URLs exclusivas. O sistema inclui autenticação de usuário, gerenciamento de upload de arquivos e um painel para administrar as declarações.
+
+Preferências do usuário
+Estilo de comunicação preferido: Linguagem simples e cotidiana.
+
+Arquitetura do sistema
+Arquitetura de Front-end
+Mecanismo de templates : Templates Jinja2 com Bootstrap 5 para interface de usuário responsiva.
+Recursos estáticos : arquivos CSS e JavaScript para estilização e funcionalidades do lado do cliente.
+Framework de interface do usuário : Bootstrap 5 com CSS personalizado para tema romântico.
+Ícones : Font Awesome 6.4.0 para iconografia consistente.
+Arquitetura de backend
+Framework Web : Flask 3.1.2 com roteamento modular.
+Autenticação : Flask-Login para gerenciamento de sessão e autenticação de usuário.
+Segurança : Flask-WTF para proteção contra CSRF e manipulação segura de formulários.
+Segurança de senhas : Ferramentas para hash e verificação de senhas
+Manipulação de Arquivos : Pillow para processamento de imagens e Werkzeug para manipulação segura de nomes de arquivos.
+Armazenamento de dados
+Banco de dados : SQLite para desenvolvimento local com esquema simples.
+Armazenamento de arquivos : Sistema de arquivos local para imagens enviadas no diretório static/uploads.
+Gerenciamento de Sessões : Sessões Flask com configurações de segurança configuráveis ​​para produção.
+Arquitetura de segurança
+Proteção CSRF : Proteção CSRF baseada em token em todos os formulários.
+Segurança de sessão : Proteja os cookies com as configurações HttpOnly e SameSite em produção.
+Segurança no envio de arquivos : higienização de nomes de arquivos, validação de tipo de arquivo e limites de tamanho (16 MB).
+Segurança de senhas : senhas criptografadas com os utilitários de segurança do Werkzeug.
+Configuração baseada no ambiente : configurações de segurança diferentes para desenvolvimento e produção.
+Estrutura do aplicativo
+Gerenciamento de usuários : registro, login e logout com Flask-Login UserMixin
+Sistema de Declarações : Crie, visualize e gerencie declarações românticas.
+Sistema de upload de arquivos : Upload de imagens com pré-visualização e validação.
+Painel de controle : Estatísticas de usuários e gerenciamento de declarações
+Tratamento de erros : Página 404 personalizada com design temático

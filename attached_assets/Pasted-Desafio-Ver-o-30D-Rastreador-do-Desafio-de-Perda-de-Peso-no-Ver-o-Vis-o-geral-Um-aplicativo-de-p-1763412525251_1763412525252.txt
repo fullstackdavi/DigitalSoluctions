@@ -1,0 +1,30 @@
+Desafio Verão 30D - Rastreador do Desafio de Perda de Peso no Verão
+Visão geral
+Um aplicativo de página única, otimizado para dispositivos móveis e compatível com PWAs, para um desafio de perda de peso de 30 dias durante o verão. Inclui um sistema de desbloqueio progressivo (os primeiros 10 dias são gratuitos, os 20 dias restantes ficam bloqueados mediante pagamento simulado), receitas diárias, minitreinos, dicas, acompanhamento do progresso com armazenamento local, notificações pop-up, mensagem de parabéns ao término do desafio e funcionalidade de compartilhamento.
+
+Propósito
+Ajude os usuários a acompanhar sua jornada de condicionamento físico de 30 dias durante o verão com orientações diárias, receitas e treinos, mantendo o engajamento por meio de um sistema de desbloqueio gamificado.
+
+Estado atual
+✅ Pronto para produção - Todas as funcionalidades implementadas e aprovadas pela equipe de arquitetura.
+
+Conteúdo completo do desafio de 30 dias (dicas, receitas, treinos)
+Sistema de desbloqueio progressivo (1 a 10 dias grátis, 11 a 30 dias bloqueado)
+Modal com detalhes do dia, incluindo receitas, treinos e anotações.
+Acompanhamento do progresso com barra de progresso visual
+Persistência do localStorage para dias concluídos, notas e status de desbloqueio.
+Notificações pop-up para ações do usuário
+Mensagem de parabéns exibida quando todos os 30 dias forem concluídos.
+Funcionalidade de compartilhamento para redes sociais
+A função de redefinição apaga o progresso.
+Design totalmente responsivo e otimizado para dispositivos móveis.
+Suporte ao modo escuro
+Manifesto PWA configurado
+Alterações recentes (14 de novembro de 2025)
+Corrigidas todas as violações das diretrizes de design:
+Removemos todos os emojis das strings da interface do usuário (substituindo-os por ícones ou texto simples).
+Removidas as configurações manuais de dimensionamento de botões (h-8, w-8, px-8, py-6)
+Removemos todos os estados de foco manuais (hover:bg- , hover:scale- )
+Contraste fixo dos botões nos estados concluído/não concluído.
+Utilizando variantes adequadas de componentes Shadcn em todo o processo.
+Recebemos a aprovação final do arquiteto para a preparação da produção.

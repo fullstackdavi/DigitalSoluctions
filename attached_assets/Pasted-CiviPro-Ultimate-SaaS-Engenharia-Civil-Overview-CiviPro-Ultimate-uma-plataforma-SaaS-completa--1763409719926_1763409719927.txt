@@ -1,0 +1,71 @@
+CiviPro Ultimate - SaaS Engenharia Civil
+Overview
+CiviPro Ultimate é uma plataforma SaaS completa para engenheiros civis gerenciarem projetos de construção, incluindo clientes, fornecedores, materiais, mão de obra, equipamentos e orçamentos detalhados. O sistema oferece rastreamento de projetos, biblioteca completa de recursos, cálculo automático de orçamentos (materiais + mão de obra + equipamentos), exportação de PDF profissional, dashboard avançado com gráficos e alertas, e simulador de cenários.
+
+Esta versão CiviPro Ultimate inclui todas as funcionalidades do MVP original mais recursos avançados para gestão completa de projetos de engenharia civil, com foco no mercado brasileiro (idioma português, formatação de moeda brasileira).
+
+Status: ✅ COMPLETO - Sistema totalmente funcional com todas as funcionalidades principais e avançadas implementadas (Outubro 2025)
+
+Fase Atual: Fase 3 - Sistema de Assinatura e Monetização com Mercado Pago ✅
+
+Créditos: Todos os componentes do sistema incluem atribuição a João Layon - Desenvolvedor Full Stack conforme requisitos.
+
+User Preferences
+Preferred communication style: Simple, everyday language.
+
+System Architecture
+Frontend Architecture
+Technology Stack:
+
+HTML5 Templates using Jinja2 templating engine
+TailwindCSS via CDN for responsive styling
+Chart.js for data visualization capabilities
+Vanilla JavaScript for theme toggling and mobile menu interactions
+Design Decisions:
+
+Responsive-first approach: Mobile-friendly design with collapsible sidebar for smaller screens
+Dark/Light theme support: User preference stored in localStorage with system preference fallback
+Component-based templates: Base template inheritance pattern for consistent UI across pages
+Real-time theme switching: Client-side JavaScript handles theme toggle without page reload
+UI Components:
+
+Sidebar navigation (desktop) with responsive mobile menu
+Dashboard with metric cards showing project statistics
+CRUD interfaces for projects and materials
+Form-based data entry with validation
+Tabular data display with inline actions
+Backend Architecture
+Framework: Flask (Python micro-framework)
+
+Rationale: Flask provides lightweight, flexible web application structure suitable for MVP development with minimal overhead. No heavy ORM dependencies allows for direct SQL control and simpler deployment.
+
+Authentication & Authorization:
+
+Session-based authentication using Flask sessions
+Password hashing with werkzeug.security (generate_password_hash, check_password_hash)
+User isolation: Database queries filtered by session user_id
+No role-based access control in MVP (single user type)
+Application Structure:
+
+Monolithic app.py: All routes and business logic in single file for MVP simplicity
+Template-driven rendering: Server-side rendering with Jinja2
+Session management: Flask secret key for session security (environment variable configurable)
+Core Features (MVP + Fase 2):
+
+MVP Base:
+
+User Management: Registro, login, logout com hash de senha
+Project Management: Operações CRUD para projetos com cliente, área, nível de acabamento e prazo
+Material Library: Banco de dados centralizado de materiais com preço por unidade
+Fase 2 - Recursos Avançados: 4. Client Management: CRUD completo para clientes com edição inline (nome, email, telefone, CPF/CNPJ) 5. Supplier Management: CRUD para fornecedores com dados de contato completos 6. Labor Management: Biblioteca de categorias de mão de obra (pedreiro, eletricista, etc.) com valores hora/dia 7. Equipment Management: Catálogo de equipamentos com valores de aluguel/compra 8. Advanced Budget System: Cálculo automático separado por tipo (materiais + mão de obra + equipamentos) 9. Enhanced PDF Export: Documentos profissionais com breakdown detalhado por categoria e subtotais 10. Advanced Dashboard: - 6 cards de métricas (projetos, clientes, fornecedores, materiais, mão de obra, equipamentos) - Gráfico de pizza: distribuição de custos por tipo
+
+Fase 3 - Sistema de Assinatura: 11. Mercado Pago Integration: Sistema completo de assinatura recorrente - Teste grátis de 7 dias automático para novos usuários - Três planos de assinatura (Básico R$97, Profissional R$197, Enterprise R$397) - Processamento de pagamentos via Mercado Pago (cartão, PIX, boleto) - Webhook para sincronização automática de status de assinatura 12. Subscription Management: - Página de planos e preços com comparação de recursos - Dashboard de gerenciamento de assinatura do usuário - Cancelamento de assinatura com um clique - Banner visual mostrando dias restantes do trial 13. Access Control: - Middleware para verificar status de assinatura ativa - Bloqueio automático de acesso quando trial/assinatura expira - Redirecionamento para página de planos quando necessário 14. Budget Scenario Simulator: Ferramenta interativa para simular diferentes configurações de orçamento
+
+Business Logic:
+
+Orçamento calculado com base em área do projeto, tipo (residencial/comercial/industrial) e nível de acabamento
+Multiplicadores automáticos por tipo de obra (residencial: 1.0x, comercial: 1.3x, industrial: 1.5x)
+Multiplicadores por acabamento (simples: 1.0x, médio: 1.5x, alto: 2.0x)
+Custos separados por categoria: materiais, mão de obra, equipamentos
+Isolamento de dados por usuário garante multi-tenancy seguro
+Relacionamentos entre projetos e clientes via foreign key client_id

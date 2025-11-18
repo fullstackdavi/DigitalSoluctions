@@ -1,0 +1,73 @@
+E-BOOK HUB - Biblioteca Digital e Plataforma de Aprendizagem de Inglês
+Visão geral
+O E-BOOK HUB é uma biblioteca digital completa, plataforma de receitas e plataforma de aprendizado de inglês no estilo Duolingo . Possui um sistema de gerenciamento de conteúdo para administradores e um sistema de aprendizado de inglês totalmente interativo e gamificado, com diversos tipos de exercícios, pronúncia em áudio, acompanhamento de progresso e muito mais. A plataforma inclui 24 e-books profissionais, 54 receitas detalhadas e 10 unidades de aprendizado de inglês abrangentes com diversos exercícios interativos.
+
+Preferências do usuário
+Estilo de comunicação preferido: Linguagem simples e cotidiana.
+
+Plataforma de Aprendizagem de Inglês (Estilo Duolingo)
+Principais características
+Percurso de aprendizagem gamificado :
+
+10 Unidades Abrangentes : Conceitos Básicos, Família, Alimentos, Animais, Cores, Casa, Clima, Corpo, Ações e Tempo
+Diversos tipos de exercícios : múltipla escolha, completar lacunas, correspondência de pares, compreensão auditiva e tradução.
+Pronúncia em áudio : Integração da API Web Speech para pronúncia autêntica em inglês americano de todas as palavras e frases.
+Acompanhamento do progresso : sistema de XP, classificação por estrelas (0-3) e acompanhamento da conclusão das lições.
+Prática ilimitada : Sem sistema de vidas/corações - pratique infinitamente sem restrições.
+Sistema de desbloqueio : desbloqueio sequencial de lições - complete a lição anterior para desbloquear a próxima.
+Feedback visual : animações no estilo Duolingo, feedback com código de cores e telas de comemoração ao concluir as tarefas.
+Árvore de Habilidades Vertical : Layout de caminho vertical elegante com linhas de conexão e pontos coloridos.
+Interface de aprendizagem :
+
+Página de Aprendizagem ( /learn): Painel principal com unidades exibidas em formato de árvore de habilidades vertical, mostrando:
+Contador de dias consecutivos 🔥
+Total de XP ganho ⭐
+Lições concluídas ✓
+Acessível através do nicho "Aprendizagem de Inglês" ou link direto "Aprenda Inglês"
+Página da lição ( /lesson/<id>): Interface de exercício interativa com:
+Barra de progresso mostrando a pergunta atual
+Exibição de vidas
+Opção de botão Ignorar
+Reprodução de áudio para pronúncia
+Feedback imediato sobre as respostas
+Tela de conclusão com estrelas e recompensas de XP.
+Acessibilidade para iniciantes :
+
+Instruções 100% em português : Todas as perguntas e instruções dos exercícios estão em português, tornando a plataforma totalmente acessível a pessoas que nunca estudaram inglês.
+Perguntas contextuais claras : As perguntas especificam claramente a tarefa (por exemplo, "Como se diz 'Hello' em inglês?" em vez de usar uma formulação ambígua).
+Conteúdo de Aprendizagem em Inglês : Embora as instruções estejam em português, as respostas e o conteúdo de aprendizagem permanecem em inglês para uma aquisição eficaz do idioma.
+Tipos de exercícios :
+
+Escolha múltipla : Selecione a resposta correta entre 4 opções com pronúncia em áudio.
+Preencha a lacuna : Digite a palavra que falta na frase.
+Jogo de correspondência : Combine palavras em inglês com suas traduções em português.
+Compreensão auditiva : Ouça a língua inglesa falada e identifique a palavra.
+Tradução : Traduzir frases em português para o inglês
+Modelos de banco de dados :
+
+Unidade : Unidades de aprendizagem com título, descrição, ícone, cor e ordem
+Lição : Lições individuais com título, descrição, recompensa de XP e ícone.
+Exercício : Questões com tipo, opções, resposta correta e texto em áudio
+Progresso do usuário : Registra a conclusão, a experiência (XP) ganha, as estrelas e a data de conclusão.
+Arquitetura do sistema
+Arquitetura de Front-end
+Motor de Templates : Jinja2 com Flask, utilizando herança de templates base. Sistema de Design : Tailwind CSS para estilização, apresentando uma paleta de cores personalizada em tons de verde, layouts baseados em cartões, cantos arredondados, sombras e detalhes em gradiente. Estrutura de Componentes : Blocos de templates reutilizáveis, com templates base.htmlpara o layout geral e templates especializados para diferentes tipos de conteúdo (por exemplo, <div>, ebook.html<span> receita.html). Elementos interativos, como a navegação por abas no painel de administração, utilizam JavaScript puro. Renderização de Conteúdo : Filtro Jinja personalizado para conversão de Markdown para HTML, com suporte a rich text em e-books, com extensões para quebras de linha e blocos de código delimitados. Recursos do E-book :
+
+Visualização no estilo Duolingo : layout baseado em cartões para as seções do e-book, fundos com gradiente, animações ao passar o mouse e tipografia aprimorada.
+Controles de áudio : Controles de áudio compactos com ajuste de velocidade, botões de fala embutidos (🔊) para frases e opções completas de reprodução de conteúdo para e-books de aprendizado de inglês.
+Ícones de seção visual : Atribuição automática de ícones aos títulos H2 com base em palavras-chave (por exemplo, 🔤 para Alfabeto, 🔊 para Sons).
+Conversão de texto em fala : Integração da API Web Speech para e-books de aprendizado de inglês, fornecendo botões de áudio no final de frases/linhas para pronúncia autêntica do inglês americano.
+Arquitetura de backend
+Framework : Flask para roteamento, tratamento de requisições e renderização de templates. Estrutura da aplicação : Arquitetura monolítica com lógica em um único bloco app.py, organizada por funcionalidade. Gerenciamento de sessão : Sessões Flask configuradas com uma chave secreta para segurança e mensagens flash. Modelos de dados :
+
+Nicho (Nicho) : Categorias com nome, descrição e ícone.
+E- book : Livros eletrônicos com título, conteúdo em Markdown, data de publicação e questionários, vinculados a nichos.
+Receita : Receitas detalhadas, incluindo ingredientes, preparo, informações nutricionais, nível de dificuldade, tempo de preparo, porções, dicas e benefícios para a saúde. Relações : Um-para-muitos entre Nicho e Ebook, com exclusão em cascata.
+Armazenamento de dados
+Banco de dados : PostgreSQL via Flask-SQLAlchemy, utilizando o serviço de banco de dados integrado do Replit. Padrão ORM : Flask-SQLAlchemy mapeia classes Python para tabelas do banco de dados usando a API SQLAlchemy 2.0. Design do esquema : Tabelas para Nichos, Ebooks (com suporte a Markdown e timestamps), Receitas (dados completos, incluindo informações nutricionais), Usuários, Tokens OAuth, Unidades, Lições, Exercícios e Progresso do Usuário. Estratégia de migração : init_db()Uma função cria as tabelas na inicialização e insere os dados iniciais (7 nichos, 24 ebooks, 54 receitas, 10 unidades de aprendizado de inglês) caso o banco de dados esteja vazio, evitando duplicatas. Todos os questionários seguem o padrão ADADA.
+
+Autenticação e Autorização
+Sistema de Autenticação : Integração com Replit Auth, com suporte para login via Google, GitHub, X, Apple e e-mail/senha. Modelo de Usuário : Armazena user_id (string), e-mail, nome, sobrenome e URL da imagem de perfil. Modelo OAuth : Gerencia tokens OAuth para sessões autenticadas. Gerenciamento de Sessões : O Flask-Login gerencia as sessões de usuário com sessões Flask para segurança. Rotas Protegidas : /learnRequerem /lesson/<id>autenticação e redirecionam para a página de login. Progresso por Usuário : O modelo UserProgress rastreia a conclusão de lições, XP ganho e estrelas por usuário, com restrição de unicidade em (user_id, lesson_id). Nota de Segurança : SECRET_KEYUtiliza variáveis ​​de ambiente com uma alternativa de desenvolvimento.
+
+Roteamento e Navegação
+Padrão Blueprint : Todas as rotas organizadas em routes_bpum blueprint para evitar dependências circulares. Rotas Públicas : Página inicial, nichos individuais, páginas de conteúdo de e-books, páginas de receitas detalhadas e página "Sobre". Rotas Protegidas : /learn(painel de aprendizado) e /lesson/<id>(interface de lição) exigem autenticação. Rotas de Receitas : /receitas/<nicho_id>para receitas filtradas, /receita/<receita_id>para detalhes completos da receita. Rotas de Administração : Para gerenciar nichos e e-books (atualmente públicas, podem ser protegidas posteriormente). Rotas de Autenticação : /auth/replit_authpara login, /logoutpara logout (gerenciadas pelo blueprint de Autenticação do Replit). Estrutura de URL : URLs no estilo RESTful usando url_for('routes.route_name')links dinâmicos com prefixo de blueprint.

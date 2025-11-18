@@ -1,0 +1,68 @@
+ProdLine360 - Sistema de Controle de Produção Industrial
+Visão Geral
+Sistema completo de controle e monitoramento de produção industrial desenvolvido em Python Flask com SQLite3 puro (sem ORM) e interface responsiva mobile-first usando Tailwind CSS.
+
+Tecnologias
+Backend: Python 3.11, Flask, SQLite3 (puro, sem ORM)
+Frontend: HTML5, Tailwind CSS (via CDN), Chart.js, Vanilla JavaScript
+Relatórios: ReportLab (PDF), OpenPyxl (Excel)
+Deploy: Gunicorn, Render (configurado)
+Estrutura do Projeto
+/
+├── app.py                  # Aplicação Flask principal com rotas e APIs
+├── database.py             # Gerenciamento SQLite3 puro (sem ORM)
+├── reports.py              # Geração de relatórios PDF/Excel
+├── requirements.txt        # Dependências Python
+├── render.yaml            # Configuração para deploy no Render
+├── data/                  # Banco de dados SQLite (não versionado)
+├── reports/               # Relatórios gerados (não versionado)
+├── static/
+│   └── cadastros.js       # JavaScript para página de cadastros
+└── templates/
+    ├── base.html          # Template base com navegação
+    ├── login.html         # Página de login
+    ├── dashboard.html     # Dashboard com gráficos e KPIs
+    ├── cadastros.html     # Cadastros (usuários, máquinas, linhas, produtos, OPs)
+    ├── apontamento.html   # Apontamento de produção hora a hora
+    └── relatorios.html    # Geração de relatórios PDF/Excel
+
+Funcionalidades Implementadas
+1. Sistema de Autenticação
+3 perfis de usuário: Gestor, Encarregado, Operador
+Login com email/senha (senhas hash SHA-256)
+Sessões seguras com Flask sessions
+Controle de acesso por perfil
+2. Cadastros (Gestor/Encarregado)
+Usuários: Nome, email, senha, perfil, setor
+Linhas de Produção: Nome, descrição
+Máquinas: Nome, código, linha, capacidade, status, presets (Parison, Ciclo, Peso, Teste Qualidade)
+Produtos: Nome, código, descrição
+Ordens de Produção: Produto, máquina, meta, período, turno
+3. Apontamento de Produção (Todos)
+Registro de produção hora a hora
+Quantidade produzida e refugo
+Motivo do refugo
+Registro de paradas de máquina com motivo e descrição
+Interface mobile-first otimizada para tablets e celulares
+4. Dashboard Interativo
+Cards de KPIs: Produção hoje, meta, refugo, paradas ativas
+Gráfico de produção por hora (Chart.js)
+Status de máquinas (verde=produção, vermelho=parada, cinza=disponível)
+Ranking de produtividade (top 10 operadores)
+Atualização automática a cada 30 segundos
+5. Controle de Paradas
+Registro de início e fim de parada
+Motivos: Manutenção, Troca de Ferramenta, Falta de Material, Falha Técnica, Setup, Limpeza, Outros
+Cálculo automático de duração em minutos
+Histórico completo
+6. Relatórios Exportáveis
+PDF: Formatado com ReportLab, tabelas, resumos
+Excel: Formatado com OpenPyxl, fórmulas, cores
+Filtros: Data, máquina, operador, turno
+Download direto do navegador
+7. Interface Responsiva
+Design mobile-first com Tailwind CSS
+Otimizado para celulares, tablets e desktops
+Menu hamburguer em telas pequenas
+Tabelas responsivas com colunas ocultas em mobile
+Formulários grandes e fáceis de usar em telas touch

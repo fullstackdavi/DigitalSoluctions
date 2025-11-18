@@ -1,0 +1,35 @@
+~/workspace$ git checkout --orphan novo-main && git add -A && git commit -m "Forced Git" && git branch -D main && git branch -m main && git push -f origin main
+Switched to a new branch 'novo-main'
+[novo-main (root-commit) 78bd657] Forced Git
+ 28 files changed, 4210 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 .replit
+ create mode 100644 attached_assets/Design_sem_nome__1_-removebg-preview_1763402140444.png
+ create mode 100644 attached_assets/Pasted-Consultas-Online-Sistema-de-Consulta-por-V-deo-em-Tempo-Real-Vis-o-geral-Este-projeto-denominad-1763407143211_1763407143211.txt
+ create mode 100644 attached_assets/Pasted-Crie-uma-landing-page-apresentacional-profissional-moderna-e-totalmente-responsiva-usando-apenas-H-1763401527942_1763401527943.txt
+ create mode 100644 attached_assets/Pasted-Fermarc-Rob-tica-Plataforma-E-commerce-Profissional-Vis-o-geral-Plataforma-completa-de-e-commerc-1763405867171_1763405867172.txt
+ create mode 100644 attached_assets/Pasted-ProdLine360-Sistema-de-Controle-de-Produ-o-Industrial-Vis-o-Geral-Sistema-completo-de-controle--1763406949259_1763406949260.txt
+ create mode 100644 attached_assets/Pasted-Sandu-che-Gourmet-Plataforma-E-commerce-Profissional-Vis-o-geral-Este-projeto-uma-plataforma-d-1763405660947_1763405660948.txt
+ create mode 100644 attached_assets/image_1763405101247.png
+ create mode 100644 attached_assets/image_1763405127819.png
+ create mode 100644 attached_assets/image_1763405147961.png
+ create mode 100644 attached_assets/image_1763405160578.png
+ create mode 100644 attached_assets/image_1763405220458.png
+ create mode 100644 attached_assets/image_1763405225090.png
+ create mode 100644 attached_assets/image_1763405236395.png
+ create mode 100644 attached_assets/image_1763405242951.png
+ create mode 100644 index.html
+ create mode 100644 produto-barbearia.html
+ create mode 100644 produto-fermarc.html
+ create mode 100644 produto-meatz.html
+ create mode 100644 produto-medconnect.html
+ create mode 100644 produto-prodline360.html
+ create mode 100644 produto-sanduiche.html
+ create mode 100644 produto-sistema-producao.html
+ create mode 100644 produto.html
+ create mode 100644 replit.md
+ create mode 100644 script.js
+ create mode 100644 style.css
+Deleted branch main (was eff0b00).
+remote: Invalid username or token. Password authentication is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/fullstackdavi/DigitalSoluctions/'

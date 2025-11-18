@@ -1,0 +1,91 @@
+Sanduíche Gourmet - Plataforma E-commerce Profissional
+Visão geral
+Este projeto é uma plataforma de e-commerce completa, construída com Python Flask, projetada para uma sanduicheria gourmet. Ela oferece funcionalidades essenciais para uma loja online, com foco em uma experiência de usuário intuitiva e um controle administrativo robusto. A plataforma visa oferecer uma solução profissional e escalável para empresas do setor alimentício, dando suporte a vendas, gestão de pedidos e engajamento do cliente com recursos como um catálogo de produtos dinâmico, carrinho de compras, sistema de pedidos e um painel administrativo poderoso.
+
+Preferências do usuário
+Priorizo ​​o desenvolvimento iterativo, focando em uma funcionalidade por vez. Prefiro uma comunicação clara e direta, com explicações fáceis de entender. Por favor, solicite confirmação antes de implementar mudanças significativas ou refatorar grandes partes do código. Valorizo ​​a legibilidade e a facilidade de manutenção do código.
+
+Alterações recentes (novembro de 2025)
+Aprimoramento de segurança e autenticação
+Separação do login de administrador (NOVO): Implementado login de administrador dedicado /admin/logincom autenticação por e-mail e senha para maior segurança.
+Remoção de senha fixa no código: A senha de administrador fixa no código-fonte foi eliminada; agora, é necessária ADMIN_PASSWORDuma variável de ambiente (prática recomendada de segurança).
+Imposição de variáveis ​​de ambiente: o sistema não será iniciado sem ADMIN_PASSWORDa configuração adequada, evitando implantações inseguras acidentais.
+Credenciais de administrador: E-mail: admin@hamburguer.com, Senha: Definida por meio de ADMIN_PASSWORDvariável de ambiente
+Melhorias na experiência do usuário em dispositivos móveis
+Otimização para dispositivos móveis do chatbot: o chatbot com IA agora oferece uma experiência profissional em tela cheia em dispositivos móveis (768px e menores).
+Design responsivo para chat: tamanhos de fonte, botões e espaçamento otimizados para dispositivos com tela sensível ao toque.
+Usabilidade aprimorada em dispositivos móveis: a interface de bate-papo se adapta perfeitamente de desktops a dispositivos móveis com breakpoints CSS dedicados em 768px e 380px.
+Arquitetura do sistema
+A plataforma foi desenvolvida usando Python 3.11 com Flask 3.0.0 para o backend, SQLAlchemy ORM com SQLite3 para o banco de dados e Flask-Login para autenticação. O frontend foi construído com HTML5, CSS3 e JavaScript puro, garantindo um design responsivo em diversos dispositivos.
+
+Principais decisões arquitetônicas:
+
+Estrutura Modular: A aplicação está organizada em módulos lógicos (ex.: main, auth, cart, admin) para facilitar a manutenção e a escalabilidade.
+Banco de dados: O SQLite3 é usado para desenvolvimento, sendo o PostgreSQL recomendado para produção.
+Autenticação: A autenticação segura do usuário utiliza Flask-Login com Werkzeug para hash de senhas, incluindo controle de acesso baseado em funções para usuários e administradores.
+Cadastro simplificado (ATUALIZADO - Nov 2025): Os usuários podem se cadastrar apenas com nome e número de telefone para um processo de inscrição mais rápido. E-mail e senha são campos opcionais.
+Login via telefone (ATUALIZADO - Nov 2025): O login utiliza o número de telefone como identificador principal em vez do e-mail, simplificando o processo de autenticação.
+Segurança: A criptografia de senhas permanece segura; usuários sem senha podem definir uma posteriormente através da funcionalidade de alteração de senha.
+UI/UX:
+Design: Layouts profissionais e organizados com foco na usabilidade e responsivos em todos os dispositivos.
+Esquema de cores: Atualizado para usar #00E65D(verde vibrante) com contraste aprimorado para melhor visibilidade. Sombras e bordas reforçadas para uma hierarquia visual aprimorada.
+Conteúdo dinâmico: as categorias de produtos exibem imagens ao passar o cursor sobre elas, e o carrossel da página inicial é carregado dinamicamente a partir do banco de dados.
+Principais características:
+Gestão de usuários: Cadastro simplificado que requer apenas nome e número de telefone. Login automático após o cadastro. Login somente via número de telefone. Configuração opcional de senha para maior segurança.
+Catálogo de produtos: Listagem com paginação, páginas detalhadas, busca, filtragem por categoria, produtos em destaque e controle de estoque.
+Carrinho de compras: Adicionar/remover itens, atualizar quantidades, calcular o total, verificar estoque, calcular parcelas e aplicar desconto PIX.
+Sistema de Pedidos: Finalização da compra, histórico de pedidos do usuário, gerenciamento de status, dedução automática de estoque e visualização detalhada do pedido.
+Painel de administração: Painel com estatísticas, CRUD para produtos, categorias, cupons e slides de carrossel. Gerenciamento avançado de pedidos com filtros, busca, paginação, estatísticas em tempo real, histórico de status, notas e exportação para CSV. Inclui um sistema de gerenciamento de usuários para criar e administrar diferentes funções (Cliente, Atendente, Cozinha, Gerente, Administrador) com permissões correspondentes e exportação para CSV com indicador de origem do cadastro (Chat Bot ou Login).
+Lista de desejos: Funcionalidade para gerenciar os produtos desejados.
+Avaliações de produtos: os usuários podem avaliar os produtos e adicionar comentários, verificados por meio de compra.
+Complementos e Observações: Permite selecionar itens extras do produto e adicionar observações especiais durante a finalização da compra, com controle de quantidade e preço.
+Gateway de pagamento: Integração com o Mercado Pago, incluindo o tratamento de webhooks para atualizações do status do pedido. Suporta retirada e entrega.
+Funil de Vendas com Chatbot (NOVO - Nov 2025):
+Primeiramente, coletamos os dados: o chatbot coleta o nome e o número de telefone do cliente ANTES de enviar qualquer link de produto/venda.
+Máquina de estados da conversa: o rastreamento inteligente do estado impede que os links sejam compartilhados até que o nome e o telefone sejam registrados.
+Registro automático: O sistema cria automaticamente contas de usuário quando um número de telefone é fornecido (função register_user_from_chat).
+Detecção Inteligente: Reconhecimento de nomes e números de telefone brasileiros em conversas, com tecnologia de IA.
+Integração simplificada: os clientes são automaticamente conectados e direcionados para a página de vendas após a coleta de dados.
+Confirmação manual de pagamentos: Os funcionários (administradores/gerentes/atendentes) confirmam os pagamentos manualmente através do painel de administração, em vez de utilizar o sistema de pagamento online.
+Rastreamento de Pagamentos: Os pedidos registram quem confirmou o pagamento (payment_confirmed_by), quando (payment_confirmed_at) e observações (payment_confirmation_notes).
+Prevenção de Duplicatas: O sistema detecta usuários existentes pelo número de telefone para evitar cadastros duplicados.
+Links clicáveis: URLs nas respostas do chatbot são convertidas automaticamente em links verdes clicáveis.
+Controle da Área de Entrega: A validação da cobertura geográfica restringe as entregas a um raio configurável a partir da loja. O administrador insere um CEP (Código Postal) e o sistema busca automaticamente os detalhes do endereço via ViaCEP e calcula as coordenadas usando Nominatim/OpenStreetMap para validação do raio. Inclui funcionalidade de busca reversa de CEP.
+Sliders de categorias da página inicial (NOVO - Nov 2025):
+Seções de categoria dinâmicas: a página inicial exibe carrosséis horizontais específicos para cada categoria de produto.
+Carrosséis interativos: Cada categoria possui seu próprio carrossel com rolagem e setas de navegação.
+Display Organizado: Produtos organizados por categorias como Sanduíches, Hambúrgueres, Bebidas, Batatas, Combos, Drinques
+Design responsivo: os sliders se adaptam a diferentes tamanhos de tela com rolagem suave.
+Acesso rápido: links "Ver todos" em cada seção para visualização completa da categoria.
+Seções de Pedidos Recentes e Mais Vendidos (NOVO - Nov 2025):
+Histórico de Pedidos do Cliente: Usuários autenticados visualizam seus 5 pedidos mais recentes na página inicial, com número do pedido, status, data, pré-visualização dos itens e total.
+Exibição dos Mais Vendidos: carrossel dedicado que apresenta os 6 produtos mais vendidos com base nos dados agregados de pedidos.
+Indicadores visuais: o selo de mais vendidos destaca os itens populares, os indicadores de status do pedido mostram o estado atual com código de cores.
+Consultas inteligentes: Consultas eficientes ao banco de dados usando a agregação GROUP BY para calcular os mais vendidos sem carregar dados desnecessários.
+Exibição condicional: as seções aparecem somente quando relevantes (pedidos recentes para usuários conectados, mais vendidos quando existem dados de pedidos).
+Layout responsivo: Cartões de pedidos em formato de grade, produtos mais vendidos em um carrossel horizontal com setas de navegação.
+Rastreamento de pedidos em tempo real (ATUALIZADO - Nov 2025):
+Autenticação por PIN: Os clientes criam seu próprio PIN de 4 dígitos ao fazer o pedido, proporcionando maior segurança e facilidade de memorização.
+PINs escolhidos pelo cliente: Os garçons pedem aos clientes que criem um PIN de 4 dígitos que será usado para rastrear seus pedidos.
+Acesso do cliente: Os clientes podem fazer login com o número do pedido + seu PIN de 4 dígitos para visualizar os pedidos em tempo real.
+Atualizações de status em tempo real: notificações via Socket.IO quando o status do pedido muda (Pendente → Preparando → Pronto → Entregue)
+Integração com a cozinha: A equipe da cozinha pode atualizar o status dos pedidos, notificando automaticamente tanto os garçons quanto os clientes.
+Painel do Garçom: A interface PDV exibe o PIN de forma destacada para facilitar o compartilhamento com os clientes, com regeneração do PIN em um clique.
+Linha do tempo do status: Linha do tempo visual que mostra o progresso do pedido, desde o recebimento até a entrega.
+Notificações para várias partes: atualizações simultâneas para a cozinha, o garçom e o cliente quando o status muda.
+Sistema de Pedidos por Código QR (ATUALIZADO - Nov 2025):
+Geração de código QR: O administrador pode criar tabelas e gerar códigos QR exclusivos para cada tabela.
+Leitura de QR Code pelo Cliente: Os clientes escaneiam o código QR na mesa para acessar o menu digital e o sistema de pedidos.
+Autenticação por PIN da mesa: Cada mesa possui um PIN exclusivo de 4 dígitos que os clientes devem inserir juntamente com o número da mesa para fazer o pedido.
+PINs gerados automaticamente: O sistema gera automaticamente PINs seguros de 4 dígitos quando as mesas são criadas.
+Gerenciamento de PIN: Os administradores podem visualizar e gerar novos PINs no painel de administração a qualquer momento.
+Exibição do PIN: Os PINs são exibidos de forma destacada na interface de gerenciamento da tabela administrativa para facilitar a consulta.
+Validação de segurança: Os pedidos exigem o número da mesa E o PIN correto, impedindo pedidos não autorizados.
+Reparo automático: O sistema gera automaticamente PINs para tabelas antigas que não possuem um PIN no primeiro acesso.
+Catálogo digital: Catálogo completo de produtos com imagens, descrições, preços e disponibilidade de estoque em tempo real.
+Gestão de Sessões de Mesa: O sistema de sessões seguro rastreia os pedidos de mesa separadamente das contas de usuário.
+Status do pedido em tempo real: Os clientes visualizam os itens do pedido com atualizações de status em tempo real (Pendente → Preparando → Pronto → Entregue)
+Histórico de Pedidos: Acesso aos itens de pedido ativos e ao histórico de pedidos concluídos para a mesa.
+Integração com Socket.IO: Notificações em tempo real quando os itens do pedido mudam de status.
+Gestão de QR Codes pelo administrador: Interface do painel de controle para criar/excluir tabelas, baixar códigos QR para impressão e gerenciar PINs.
+Integração perfeita com o sistema PDV: Funciona em conjunto com o sistema PDV existente, oferecendo segurança aprimorada.

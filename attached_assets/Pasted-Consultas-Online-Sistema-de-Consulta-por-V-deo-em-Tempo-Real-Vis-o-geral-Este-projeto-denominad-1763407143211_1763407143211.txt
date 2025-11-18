@@ -1,0 +1,33 @@
+Consultas Online - Sistema de Consulta por Vídeo em Tempo Real
+Visão geral
+Este projeto, denominado "MedConnect", é uma plataforma de consulta por vídeo em tempo real, construída com Flask e Socket.IO, voltada principalmente para a área médica. Suporta três tipos de usuários (Administrador, Médico e Paciente) com autenticação segura, acompanhamento da evolução do paciente e salas de consulta dedicadas. A plataforma visa fornecer um sistema de consulta online abrangente, intuitivo e eficiente para que profissionais de saúde gerenciem pacientes, realizem consultas por vídeo e mantenham registros médicos.
+
+Preferências do usuário
+Estilo de comunicação preferido: Linguagem simples e cotidiana.
+
+Arquitetura do sistema
+Decisões de UI/UX
+O aplicativo apresenta um design UX/DX moderno com um tema médico consistente em azul e ciano, fundos gradientes e efeitos de vidro morfológico. Utiliza a família de fontes Inter do Google Fonts e é totalmente responsivo em desktops, tablets e dispositivos móveis. Os painéis empregam interfaces baseadas em cartões com efeitos de foco e estatísticas animadas. Os layouts de videochamadas são baseados em funções, otimizando a exibição do participante principal. Todas as páginas incluem um rodapé com a identidade visual da marca.
+
+Implementações técnicas
+O backend utiliza Flask e Flask-SocketIO para comunicação bidirecional em tempo real, essencial para a sinalização WebRTC . O WebRTC facilita o streaming de vídeo/áudio ponto a ponto, aproveitando o servidor STUN público do Google. A autenticação utiliza sessões Flask com Werkzeug para hash de senhas e controle de acesso personalizado baseado em funções. Os códigos das salas de consulta são gerados aleatoriamente.
+
+Especificações do recurso
+Gestão de usuários : os administradores gerenciam médicos e pacientes; os médicos podem cadastrar seus próprios pacientes.
+Salas de Consulta : Salas exclusivas e dedicadas para consultas médico-paciente.
+Acompanhamento da evolução médica : os médicos registram anotações, diagnósticos e prescrições dos pacientes.
+Sistema de Faturamento : Os administradores configuram as taxas. O sistema cria automaticamente registros de faturamento para consultas ou videochamadas finalizadas, calculando a receita para médicos e administradores. Ambos os perfis têm acesso a painéis com o histórico de faturamento e relatórios.
+Sistema de Fechamento Mensal : Um sistema abrangente de gerenciamento de pagamentos que permite aos administradores criar, confirmar e acompanhar os pagamentos mensais dos médicos, com um processo de verificação em duas etapas (Administrador confirma o pagamento → Médico confirma o recebimento) e um histórico completo de auditoria.
+Integração de Pagamento PIX : Os médicos podem cadastrar sua chave PIX na página de perfil. Quando os administradores geram os relatórios de fechamento mensal, o sistema exporta uma planilha do Excel contendo os nomes dos médicos, os valores líquidos recebidos e suas chaves PIX para facilitar o processamento dos pagamentos.
+Exportação para Excel para Pagamentos : Os administradores podem exportar planilhas do Excel formatadas profissionalmente com detalhes de pagamento, incluindo informações do médico, número de consultas, valores brutos/líquidos, chaves PIX e status do pagamento.
+Redefinição do banco de dados : Recurso exclusivo para administradores que permite redefinir todo o banco de dados, preservando a conta de administrador. Requer confirmação.
+Painéis de controle baseados em funções : Painéis personalizados para Administrador (gerenciamento de usuários, configuração de faturamento, receita, fechamentos, reinicialização do banco de dados), Médico (gerenciamento de pacientes, salas, evoluções, histórico de faturamento, pagamentos) e Paciente (acesso a salas, histórico médico).
+Presença em tempo real : Status visual e notificações sobre o estado de conexão dos participantes em videochamadas.
+Finalização da consulta : Os médicos podem finalizar as consultas, desativando as salas e solicitando a criação de novas salas.
+Visualização de detalhes do paciente : Páginas dedicadas para que os médicos visualizem informações e histórico médico do paciente.
+Registro automático de consultas : Cada videochamada registra uma consulta faturável, vinculada às tarifas do médico.
+Sistema de Foto de Perfil : Carregamento e exibição seguros de fotos de perfil de usuários com validação de arquivos, limites de tamanho e opções alternativas para as iniciais do usuário em diversas listas e painéis.
+Escolhas de projeto do sistema
+Framework de backend : Flask com Flask-SocketIO para suporte leve e em tempo real a WebSockets.
+Banco de dados : SQLite para armazenamento persistente incorporado e sem servidor. O esquema inclui tabelas para usuários, médicos, pacientes, consultórios, evoluções médicas, configurações de faturamento, registros de consultas e fechamentos mensais.
+Sinalização em tempo real : Socket.IO WebSockets para troca confiável de descrições de sessão WebRTC e candidatos ICE usando comunicação baseada em sala.

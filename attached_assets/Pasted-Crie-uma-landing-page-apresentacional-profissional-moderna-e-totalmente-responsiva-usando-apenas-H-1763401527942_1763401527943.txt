@@ -1,0 +1,100 @@
+Crie uma landing page apresentacional profissional, moderna e totalmente responsiva, usando apenas HTML + CSS + JS, compatível com hospedagem no GitHub Pages.
+
+🎯 Informações da empresa
+
+Nome da empresa: Digital Solutions
+Descrição: Agência especializada em design, criação de sites, automações, identidade visual, criação de criativos, tráfego pago, páginas de vendas e soluções digitais completas.
+Estilo visual: moderno, minimalista, tecnológico, com cores primárias preto (#000), cinza escuro e destaque em azul neon (#00D9FF).
+
+🧩 Estrutura que quero
+
+A página deve conter:
+
+1️⃣ Hero Section (capa)
+
+Título forte apresentando a empresa.
+
+Subtítulo curto explicando o que fazemos.
+
+Um botão chamativo “Entre em Contato” levando para um link (placeholder).
+
+Fundo clean e profissional.
+
+2️⃣ Sobre a Empresa
+
+Pequeno texto explicando a Digital Solutions.
+
+Layout limpo com ícones ou elementos visuais simples.
+
+3️⃣ Lista de Serviços
+
+Crie cards minimalistas para apresentar os serviços:
+
+Criação de Sites
+
+Identidade Visual
+
+Design e Criativos
+
+Automações com IA
+
+Gestão de Tráfego Pago
+
+Landing Pages de Alta Conversão
+
+Cada card deve ter:
+
+Ícone ou imagem simples (pode ser placeholder).
+
+Título
+
+Curta descrição
+
+4️⃣ Sessão de Produtos (mini catálogo)
+
+Criar um bloco com 1 produto de exemplo, contendo:
+
+Nome do produto
+
+Foto (placeholder)
+
+Pequena descrição
+
+Botão “Ver Mais” levando para uma segunda página produto.html
+Que deve ser gerada também com a mesma identidade visual.
+
+5️⃣ Contato
+
+Uma seção simples com:
+
+Botão para WhatsApp
+
+Botão para Email
+
+Texto chamando para ação
+
+6️⃣ Rodapé
+
+Simples, com nome da empresa e direitos reservados.
+
+🛠️ Requisitos técnicos
+
+Gerar o arquivo principal index.html
+
+Gerar o arquivo secundário produto.html
+
+Criar um CSS separado (style.css)
+
+Criar um JS separado (script.js) caso necessário
+
+Tudo deve funcionar 100% estático, sem backend
+
+A estrutura deve ser compatível com GitHub Pages
+
+📱 Responsividade
+
+Mobile-first
+
+Ajustes para tablets e desktops
+
+Grid e flex bem estruturados
